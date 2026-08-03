@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: note_source
+    description: "Source tables from NOTE1 database and NOTE2 schema"
+    database: NOTE1
+    schema: NOTE2
+
+    tables:
+      - name: EMP
+        description: "Employee source table"
+
+        columns:
+          - name: EMP_ID
+            description: "Unique employee identifier"
+            tests:
+              - unique
+              - not_null
+
+          - name: EMP_NAME
+            description: "Employee name"
+            tests:
+              - not_null
+
+          - name: DEPARTMENT
+            description: "Employee department"
+
+          - name: SALARY
+            description: "Employee salary"
+
+          - name: HIRE_DATE
+            description: "Employee hire date"

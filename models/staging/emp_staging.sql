@@ -1,0 +1,12 @@
+{{ config(
+    materialized='view'
+) }}
+
+SELECT
+    EMP_ID::NUMBER AS EMP_ID,
+    TRIM(UPPER(EMP_NAME)) AS EMP_NAME,
+    TRIM(UPPER(DEPARTMENT)) AS DEPARTMENT,
+    COALESCE(SALARY, 0)::NUMBER(10,2) AS SALARY,
+    HIRE_DATE::DATE AS HIRE_DATE
+FROM {{ source('note_source', 'EMP') }}
+WHERE EMP_ID IS NOT NULL;
