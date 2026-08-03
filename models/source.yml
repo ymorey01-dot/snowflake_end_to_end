@@ -30,3 +30,25 @@ sources:
 
           - name: HIRE_DATE
             description: "Employee hire date"
+
+      - name: DEPT
+        description: "Department source table"
+
+        columns:
+          - name: DEPT_ID
+            description: "Unique department identifier"
+            tests:
+              - unique
+              - not_null
+
+          - name: DEPARTMENT
+            description: "Department name"
+            tests:
+              - unique
+              - not_null
+
+          - name: LOCATION
+            description: "Department location"
+
+          - name: MANAGER_NAME
+            description: "Department manager"
